@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-
 
 
 class Reservations extends Model
@@ -14,7 +14,6 @@ class Reservations extends Model
 
    // protected $fillable = ['guesty_id', 'integration', 'listingId'];
     public static $snakeAttributes = false;
-
 
     protected function integration(): Attribute
     {
@@ -48,5 +47,28 @@ class Reservations extends Model
             get: fn ($value) => (!empty($value)) ? json_decode($value) : []
         );
     }
-
+    protected function checkIn(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => (!empty($value)) ? date('m-d', strtotime($value)) : ''
+        );
+    }
+    protected function checkOut(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => (!empty($value)) ? date('m-d', strtotime($value)) : ''
+        );
+    }
+    protected function createdAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => (!empty($value)) ? date('m-d', strtotime($value)) : ''
+        );
+    }
+    protected function confirmedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => (!empty($value)) ? date('m-d', strtotime($value)) : ''
+        );
+    }
 }
