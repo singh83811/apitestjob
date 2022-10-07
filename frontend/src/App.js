@@ -1,22 +1,14 @@
-import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import ListReservationsComponent from './components/ListReservationsComponent';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import ListComponent from './ListComponent'
 
 function App ()
 {
   return (
-    <div>
-
-
-      <Router>
-        <Routes>
-          <Route exact path="/" element={ <ListReservationsComponent /> } />
-          <Route exact path="/reservations" element={ <ListReservationsComponent /> } />
-        </Routes>
-      </Router>
+    <div className="App">
+      <ListComponent />
     </div>
-
   );
 }
 
